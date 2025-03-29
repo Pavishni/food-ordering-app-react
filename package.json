@@ -1,0 +1,32 @@
+{
+  "name": "react-training",
+  "version": "1.0.0",
+  "description": "For training React",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pavishni/react-training.git"
+  },
+  "keywords": [
+    "react",
+    "training"
+  ],
+  "author": "Pavi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pavishni/react-training/issues"
+  },
+  "homepage": "https://github.com/Pavishni/react-training#readme",
+  "devDependencies": {
+    "parcel": "^2.14.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserlist": [
+    "last 2 versions"
+  ]
+}
