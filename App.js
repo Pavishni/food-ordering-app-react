@@ -1,22 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-const heading = React.createElement("h1", {id: "heading"}, "Hello World from React!");
 
-const parent = React.createElement(
-    "div", 
-    {id: "parent"}, 
-    [React.createElement(
-        "div", 
-        {id: "child"}, 
-        [React.createElement("h1", {}, "This is h1 tag"), React.createElement("h2", {}, "This is h2 tag")]
-    ),
-    React.createElement(
-        "div", 
-        {id: "child2"}, 
-        [React.createElement("h1", {}, "This is h1 tag"), React.createElement("h2", {}, "This is h2 tag")]
-    )]
+//React Element
+const Title = () => (
+    <h1 className="head">
+        Hello World!
+    </h1>
 );
 
 
+//React functional component - wrap around braces
+const HeadingComponent = () => (
+    <div id="container">
+        <Title />
+        {Title()}
+        <h1>React</h1>
+    </div>
+)
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent />);
+// root.render(heading);
