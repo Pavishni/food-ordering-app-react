@@ -19,17 +19,16 @@ const Header = () => {
     )
 }
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
     return (
         <div className="res-card">
             <img
                 className="res-logo"
                 src="https://img.freepik.com/free-photo/top-view-circular-food-frame_23-2148723455.jpg?semt=ais_hybrid">
             </img>
-            <h3>ABC foods</h3>
-            <h4>South Indian, North Indian</h4>
-            <h4>4.5 stars</h4>
-            <h4>38 minutes</h4>
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisine}</h4>
+            <h4>{props.rating}</h4>
         </div>
     );
 }
@@ -39,10 +38,10 @@ const Body = () => {
         <div className="body">
             <div className="search">Search</div>
             <div className="res-container">
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
-                <RestaurantCard />
+                <RestaurantCard resName="ABC foods" cuisine ="South Indian, North Indian" rating = "4.5 stars" />
+                <RestaurantCard resName="TFC foods" cuisine ="North Indian" rating = "4.3 stars" />
+                <RestaurantCard resName="Test foods" cuisine ="Chinese North Indian" rating = "4.4 stars" />
+                <RestaurantCard resName="Pav foods" cuisine ="South Indian, North Indian" rating = "4.6 stars" />
             </div>
         </div>
     )
