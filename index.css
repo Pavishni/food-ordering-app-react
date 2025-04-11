@@ -51,3 +51,7 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.filter-btn{
+    margin: 10px;
+}
