@@ -42,16 +42,39 @@
     width: 100%;
 }
 
-.res-logo-border{
+.res-logo-border {
     height: 50%;
 }
 
-.res-container{
+.res-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.filter-btn{
+.filter{
+    display: flex;
+}
+
+.filter-btn {
     margin: 10px;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.shimmer-cards {
+    width: 200px;
+    height: 400px;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+.login-btn {
+    margin: 10px;
+    height: 30px;
+    width: 100px;
 }
