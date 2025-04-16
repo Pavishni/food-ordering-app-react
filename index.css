@@ -77,3 +77,8 @@
   height: 30px;
   width: 100px;
 }
+
+.aboutCard{
+  padding: 10px;
+  border: 5px solid black;
+}
