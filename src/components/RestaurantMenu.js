@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { RES_MENU_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resMenuList, setResMenuList] = useState(null);
-
-  const {resId} = useParams();
+  const { resId } = useParams();
   console.log(resId);
 
-  useEffect(() => {
-    fetchRestaurantDetails();
-  }, []);
+  const resMenuList = useRestaurantMenu(resId);
 
-  const fetchRestaurantDetails = async () => {
-    const data = await fetch(
-      RES_MENU_URL + resId
-    );
-    const json = await data.json();
-    setResMenuList(json.data);
-  };
+  console.log(resMenuList);
 
   if (resMenuList === null) {
     return <Shimmer />;
@@ -28,26 +17,27 @@ const RestaurantMenu = () => {
   const { name, costForTwoMessage, cuisines } =
     resMenuList?.cards[2]?.card?.card?.info;
 
-//   const { itemCards } =
-//     resMenuList?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+  //  const { itemCards } =
+  // resMenuList?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards;
 
-const menuCards = resMenuList?.cards
+  const recommendedCard = resMenuList?.cards
   ?.find((c) => c.groupedCard?.cardGroupMap?.REGULAR)
-  ?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  ?.groupedCard?.cardGroupMap?.REGULAR?.cards
+  ?.find((c) => c.card?.card?.title === "Recommended");
 
-const allItemCards = menuCards
-  ?.filter((c) => c.card?.card?.itemCards)
-  ?.flatMap((c) => c.card.card.itemCards);
+  const recommendedItems = recommendedCard?.card?.card?.itemCards;
 
+  console.log(recommendedItems);
 
   return (
     <div>
       <h1>{name}</h1>
       <h3>{costForTwoMessage}</h3>
       <ul>
-        {allItemCards.map((item) => (
+        {recommendedItems.map((item) => (
           <li key={item.card.info.id}>
-            {item.card.info.name} - Rs {(item.card.info.price || item.card.info.defaultPrice)/100}
+            {item.card.info.name} - Rs{" "}
+            {(item.card.info.price || item.card.info.defaultPrice) / 100}
           </li>
         ))}
       </ul>
