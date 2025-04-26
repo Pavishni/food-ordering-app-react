@@ -17,25 +17,22 @@ const RestaurantMenu = () => {
   const { name, costForTwoMessage, cuisines } =
     resMenuList?.cards[2]?.card?.card?.info;
 
-  //  const { itemCards } =
-  // resMenuList?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards;
-
   const recommendedCard = resMenuList?.cards
   ?.find((c) => c.groupedCard?.cardGroupMap?.REGULAR)
   ?.groupedCard?.cardGroupMap?.REGULAR?.cards
-  ?.find((c) => c.card?.card?.title === "Recommended");
+  ?.find((c) => c.card?.card?.itemCards);
 
   const recommendedItems = recommendedCard?.card?.card?.itemCards;
 
-  console.log(recommendedItems);
+  console.log(recommendedCard);
 
   return (
-    <div>
-      <h1>{name}</h1>
-      <h3>{costForTwoMessage}</h3>
-      <ul>
+    <div className="h-screen bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
+      <h1 className="m-5 text-3xl font-bold text-black shadow-2xl">{name}</h1>
+      <h3 className="m-2 p-2 font-semibold text-xl text-gray-800">{costForTwoMessage}</h3>
+      <ul className="m-2 p-5 text-gray-750">
         {recommendedItems.map((item) => (
-          <li key={item.card.info.id}>
+          <li key={item.card.info.id} className="list-disc m-2 p-2 border-zinc-300 bg-gray-100">
             {item.card.info.name} - Rs{" "}
             {(item.card.info.price || item.card.info.defaultPrice) / 100}
           </li>
