@@ -27,7 +27,7 @@ const RestaurantMenu = () => {
   console.log(recommendedCard);
 
   return (
-    <div className="h-screen bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
+    <div className="bg-cover bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
       <h1 className="m-5 text-3xl font-bold text-black shadow-2xl">{name}</h1>
       <h3 className="m-2 p-2 font-semibold text-xl text-gray-800">{costForTwoMessage}</h3>
       <ul className="m-2 p-5 text-gray-750">
