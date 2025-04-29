@@ -11,12 +11,12 @@ const ItemsList = ({ items }) => {
           <div className="w-9/12">
             <div className="py-4">
               <span>{item.card.info.name}</span>
-              <span> - ₹{item.card.info.price / 100}</span>
+              <span> - ₹{(item.card.info.price || item.card.info.defaultPrice )/ 100}</span>
             </div>
             <p className="text-xs">{item.card.info.description}</p>
           </div>
           <div className="w-3/12 h-auto p-4">
-            <img src={CDN_URL + item.card.info.imageId} />
+            <img src={CDN_URL + item.card.info.imageId} alt={"Image "+item.card.info.name}/>
           </div>
         </div>
       ))}
