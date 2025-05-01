@@ -1,10 +1,13 @@
-import { useState,Suspense } from "react";
+import { useState,Suspense, useContext } from "react";
 import { LOGO_URL } from "../utils/constants.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import Usercontext from "../utils/UserContext.js";
+
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+  const {loggedInUser} = useContext(Usercontext)
   const onlineStatus = useOnlineStatus();
   return (
     <div className="flex bg-white/70 backdrop-blur-md shadow-lg justify-between h-37">
@@ -27,7 +30,7 @@ const Header = () => {
           <li className="px-2">
             <Link to={"/contact"}>Contact</Link>
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4">Cart🛒</li>
           <button
             className="border-2 bg-gray-600 text-white px-6 drop-shadow-lg cursor-pointer"
             onClick={() => {
@@ -36,6 +39,7 @@ const Header = () => {
           >
             {btnName}
           </button>
+          <li>{loggedInUser}</li>
         </ul>
       </div>
     </div>
