@@ -1,6 +1,6 @@
 import RestaurantCard, { withTopRated } from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
+import ShimmerHome from "./ShimmerHome";
 import { RES_URL } from "../utils/constants.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
@@ -34,7 +34,7 @@ const Body = () => {
   console.log(listOfRestaurants);
 
   return listOfRestaurants.length === 0 ? (
-    <Shimmer />
+    <ShimmerHome />
   ) : (
     <div className="bg-cover bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200">
       <div className="flex pt-8 pl-20">
