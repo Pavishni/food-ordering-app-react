@@ -6,6 +6,8 @@ const ItemsList = ({ items }) => {
   const dispatch = useDispatch();
   const handleAddToCart = (item) => {
     dispatch(addItem(item));
+    // alert(item.card.info.name+" added to cart");
+
   };
   return (
     <div>
