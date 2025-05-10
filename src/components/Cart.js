@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, removeItem } from "../utils/cartSlice";
+import { clearCart } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants.js";
 
 const Cart = () => {
@@ -8,9 +8,10 @@ const Cart = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
   };
-  const removeItemfromCart = () => {
-    dispatch(removeItem());
-  }
+  const totalPrice = cartItems.reduce((total,item) => {
+    const itemPrice = (item.card.info.price || item.card.info.defaultPrice) * item.quantity/100;
+    return total = total + itemPrice
+  },0)
   return (
     <div className="m-4 p-4">
       <p className="font-semibold text-center text-3xl">Cart</p>
@@ -39,7 +40,7 @@ const Cart = () => {
                     Quantity
                   </th>
                   <th className="px-6 py-3 font-medium text-gray-700 text-left">
-                    Total Price
+                    Price
                   </th>
                 </tr>
               </thead>
@@ -66,6 +67,8 @@ const Cart = () => {
                 ))}
               </tbody>
             </table>
+
+            <div className="text-right font-bold text-xl p-4 m-4">Total Price :{totalPrice}</div>
           </div>
         )}
       </div>
