@@ -31,8 +31,6 @@ const Body = () => {
   if (onlineStatus === false)
     return <h1>You're offline. Please check your internet connection</h1>;
 
-  console.log(listOfRestaurants);
-
   return listOfRestaurants.length === 0 ? (
     <ShimmerHome />
   ) : (
@@ -41,6 +39,7 @@ const Body = () => {
         <div className="flex p-3">
           <div className="pr-2">
             <input
+              data-testid = "searchInput"
               type="text"
               className="border-2 rounded-sm bg-purple-100 p-1"
               value={searchRestaurants}
