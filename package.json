@@ -9,7 +9,7 @@
     "watch": "jest --watch"
   },
   "engines": {
-    "node": ">=18"
+    "node": "20.16.0"
   },
   "repository": {
     "type": "git",
