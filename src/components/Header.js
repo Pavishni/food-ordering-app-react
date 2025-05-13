@@ -10,7 +10,6 @@ const Header = () => {
   const { loggedInUser } = useContext(Usercontext);
   const onlineStatus = useOnlineStatus();
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
   return (
     <div className="flex bg-white/70 backdrop-blur-md shadow-lg justify-between h-37">
       <div className="">
