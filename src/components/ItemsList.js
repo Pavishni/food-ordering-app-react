@@ -33,7 +33,7 @@ const ItemsList = ({ items }) => {
               alt={"Image " + item.card.info.name}
             />
             <button
-              className="bg-gray-600 h-6 w-20 text-white cursor-pointer text-center ml-8"
+              className="bg-gray-600 h-6 w-15 lg:w-20 text-white cursor-pointer text-center mx-1 lg:ml-8"
               onClick={() => handleAddToCart(item)}
             >
               Add

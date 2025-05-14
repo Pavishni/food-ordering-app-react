@@ -15,7 +15,7 @@ const Cart = () => {
   return (
     <div className="m-4 p-4">
       <p className="font-semibold text-center text-3xl">Cart</p>
-      <div className="w-6/12 h-[200px] m-auto">
+      <div className="w-6/12 h-[200px] lg:m-auto">
         <button
           className="cursor-pointer bg-gray-700 border-b-gray-700 shadow-lg text-white p-1.5 my-1.5 text-center"
           onClick={handleClearCart}
@@ -47,7 +47,7 @@ const Cart = () => {
               <tbody>
                 {cartItems.map((item) => (
                   <tr key={item.card.info.id} className="shadow-lg">
-                    <td className="w-3/12 h-auto p-4">
+                    <td className="w-3/12 h-auto lg:p-4">
                       <img
                         className="p-1"
                         src={CDN_URL + item.card.info.imageId}
@@ -68,7 +68,7 @@ const Cart = () => {
               </tbody>
             </table>
 
-            <div className="text-right font-bold text-xl p-4 m-4">Total Price :{totalPrice}</div>
+            <div className="text-right font-bold text-xl p-4 lg:m-4">Total Price :{totalPrice}</div>
           </div>
         )}
       </div>
