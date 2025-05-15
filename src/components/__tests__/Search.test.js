@@ -60,7 +60,7 @@ it("Should load filtered results", async () => {
     const cardsBeforeFilter = screen.getAllByTestId("rescards");
     expect(cardsBeforeFilter.length).toBe(20);
   
-    const filterbtn = screen.getByRole("button", { name: "Top Rated Restaurants" });
+    const filterbtn = screen.getByRole("button", { name: "Top-Rated" });
   
     fireEvent.click(filterbtn);
   

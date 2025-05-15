@@ -49,7 +49,7 @@ const Body = () => {
             />
           </div>
           <button
-            className="border-2 rounded-lg bg-gray-500 text-white p-1 h-auto"
+            className="border-2 rounded-lg bg-gray-500 text-white p-1 h-auto cursor-pointer"
             onClick={() => {
               const filteredRestaurants = listOfRestaurants?.filter((res) =>
                 res.info.name
@@ -62,7 +62,7 @@ const Body = () => {
             Search
           </button>
           <button
-            className="border-2 rounded-lg bg-gray-500 text-white p-1 h-auto text-s"
+            className="border-2 rounded-lg bg-gray-500 text-white p-1 h-auto text-s cursor-pointer"
             onClick={() => {
               const filteredList = listOfRestaurants?.filter(
                 (res) => res.info.avgRating >= 4.5
