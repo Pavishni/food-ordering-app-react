@@ -13,7 +13,7 @@
     "url": "git+https://github.com/Pavishni/react-training.git"
   },
   "engines": {
-    "node": "20.16.0"
+    "node": "20"
   },
   "keywords": [
     "react",
