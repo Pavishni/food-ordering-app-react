@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { RES_MENU_URL } from "../utils/constants";
+import searchResCard from "../components/mocks/searchResCard.json";
 
 const useRestaurantMenu = (resId) => {
   const [resMenuList, setResMenuList] = useState(null);
@@ -9,9 +10,13 @@ const useRestaurantMenu = (resId) => {
   }, []);
 
   const fetchRestaurantDetails = async () => {
-    const data = await fetch(RES_MENU_URL + resId);
-    const json = await data.json();
-    setResMenuList(json.data);
+    try {
+      const data = await fetch(RES_MENU_URL + resId);
+      const json = await data.json();
+      setResMenuList(json?.data);
+    } catch (error) {
+      setResMenuList(searchResCard?.data);
+    }
   };
 
   return resMenuList;

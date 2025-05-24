@@ -4,6 +4,7 @@ import ShimmerHome from "./ShimmerHome";
 import { RES_URL } from "../utils/constants.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import resMenuMock from "./mocks/resMenuMock.json";
 
 const Body = () => {
   const [listOfRestaurants, setRestaurants] = useState([]);
@@ -15,16 +16,29 @@ const Body = () => {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
-    const data = await fetch(RES_URL);
+  const extractRestaurantList = (data) => {
+    return (
+      data?.cards?.find(
+        (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      )?.card?.card?.gridElements?.infoWithStyle?.restaurants || []
+    );
+  };
 
-    const json = await data.json();
-    setRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setFilteredRestaurants(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+  const fetchData = async () => {
+    try {
+      const data = await fetch(RES_URL);
+
+      const json = await data.json();
+      const restaurantsList = extractRestaurantList(json?.data);
+      setRestaurants(restaurantsList);
+      setFilteredRestaurants(restaurantsList);
+    } catch (error) {
+      console.log("Error fetching live data:", error);
+      const mockData = extractRestaurantList(resMenuMock?.data);
+      console.log(mockData);
+      setRestaurants(mockData);
+      setFilteredRestaurants(mockData);
+    }
   };
 
   const onlineStatus = useOnlineStatus();
