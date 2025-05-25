@@ -50,7 +50,7 @@ const Body = () => {
   ) : (
     <div className="bg-white/70 backdrop-blur-md">
       <div className="m-7 lg:mx-12">
-        <div className="flex lg:flex-wrap">
+        <div className="flex flex-wrap">
           <div className="pr-2">
             <input
               data-testid="searchInput"
@@ -88,7 +88,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap p-5 m-10">
+      <div className="flex flex-wrap m-5 lg:m-10 lg:p-5">
         {filteredRestaurantList?.map((restaurant) => (
           <Link
             key={restaurant.info.id}

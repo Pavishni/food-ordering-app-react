@@ -14,10 +14,8 @@ const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => (
   <Provider store={appStore}>
-    <div className="app">
       <Header />
       <Outlet />
-    </div>
   </Provider>
 );
 
