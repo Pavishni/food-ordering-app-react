@@ -34,8 +34,11 @@ To run this project locally:
    npm install
    npm start
    ```
+## Demo
+https://food-app-demo30.web.app/
 
 ## Output files for reference
+
 ![image](https://github.com/user-attachments/assets/c4732f4b-de78-49aa-996d-1b1bbbd1a957)
 
 ![image](https://github.com/user-attachments/assets/ee61ec43-3fd5-4612-a1b2-edc58cb2b1a9)
